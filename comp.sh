@@ -19,15 +19,14 @@ g++ -shared -fPIC HelloWorld2Imp.cpp -o libHelloWorld2Imp.so
 nm -S libHelloWorld2Imp.so |grep fix
 /opt/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -shared -fPIC HelloWorld2.cpp -o libHelloWorld2.so
 nm -S libHelloWorld2.so |grep fix
-/opt/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -L/opt/anaconda3/lib -L. -lHelloWorld2  Main2.cpp -o Main2
-
+/opt/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -L. -lHelloWorld2 -lHelloWorld2Imp  Main2.cpp -o Main2
 
 # Fail to link.
 /opt/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -shared -fPIC HelloWorld2Imp.cpp -o libHelloWorld2Imp.so
 nm -S libHelloWorld2Imp.so |grep fix
 g++ -shared -fPIC HelloWorld2.cpp -o libHelloWorld2.so
 nm -S libHelloWorld2.so |grep fix
-g++ -L/opt/anaconda3/lib -L. -lHelloWorld2  Main2.cpp -o Main2
+g++ -L/opt/anaconda3/lib -L. -lHelloWorld2 -lHelloWorld2Imp  Main2.cpp -o Main2
 
 # Good to link
 /opt/anaconda3/bin/x86_64-conda_cos6-linux-gnu-g++ -shared -fPIC HelloWorld2Imp.cpp -o libHelloWorld2Imp.so
