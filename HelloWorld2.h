@@ -4,6 +4,8 @@ namespace internal {
 template <typename T>
 class ExplicitlyConstructed {
  public:
+    ExplicitlyConstructed(int i) {}
+ 
 #if LANG_CXX11
   constexpr
 #endif
